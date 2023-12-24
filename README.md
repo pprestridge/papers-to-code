@@ -3,6 +3,7 @@ Recreating famous papers in PyTorch
 
 ## Structure
 
+```
 ├── notebooks
 ├── project_1
 ├── project_2
@@ -11,6 +12,7 @@ Recreating famous papers in PyTorch
     ├── data
     ├── tests
     └── utils
+```
 
 ## Completed 
 
