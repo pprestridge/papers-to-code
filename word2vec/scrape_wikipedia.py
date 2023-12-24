@@ -2,6 +2,8 @@ import argparse
 import os
 import re
 
+import nltk
+from nltk.corpus import stopwords
 import requests
 from bs4 import BeautifulSoup
 
@@ -35,17 +37,27 @@ def scrape_links(num_articles):
         # Remove references
         text = re.sub(r"\[[^]]*\]", "", text)
 
+        cleaned_text = clean_text(text)
+
         # Save off the text to a csv
-        with open(os.path.join(data_path, title + ".csv"), "w") as f:
-            f.write(text)
-    return 0
+        with open(os.path.join(data_path, title + ".txt"), "w") as f:
+            f.write(cleaned_text)
 
 
 ######################
 # Clean/Preprocess Text Functions
 ######################
+nltk.download("stopwords")
+sw = stopwords.words("english")
+
+
 def clean_text(text):
-    pass
+    """Clean the text by removing punctuations, removing stopwords, and making lowercase"""
+    text = text.lower()
+    text = re.sub(r"[^a-zA-Z0-9]", " ", text)
+    words = text.split()
+    words = [w for w in words if w not in sw]
+    return " ".join(words)
 
 
 def tokenize_text(text, tokenizer):

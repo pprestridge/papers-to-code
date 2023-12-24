@@ -8,5 +8,6 @@ dependencies:
   - python=3.10
   - beautifulsoup4
   - requests
+  - nltk
   - pip:
     - torch==2.1.2
