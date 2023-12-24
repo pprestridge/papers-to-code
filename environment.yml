@@ -1,0 +1,12 @@
+name: papers-with-code
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - matplotlib
+  - pandas
+  - python=3.10
+  - beautifulsoup4
+  - requests
+  - pip:
+    - torch==2.1.2
