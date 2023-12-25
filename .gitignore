@@ -2,3 +2,5 @@
 .DS_Store
 __pycache__/
 shared/data/wikipedia/
+shared/data/cbow/
+shared/data/skipgram/
